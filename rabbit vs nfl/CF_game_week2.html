@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<script>
+
+//QB passing game- who will throw 100 yards first
+
+		function Qb(name, pass, focus) {
+			this.name = name,
+			this.pass = pass,
+			this.focus = focus,
+			this.position = 0,
+			this.isFocused = function() {
+				return Math.floor(Math.random(0) * 10) < this.focus;
+			}
+
+			this.advance = function() {
+				if (this.isFocused()) {
+					this.position += this.pass;
+				}
+			}
+			this.progressReport = function() {
+				return this.name + " is at: " + this.position;
+				}
+			}
+
+		var brees = new Qb("Drew Brees", 8, 7);
+		var brady = new Qb("Tom Brady", 5, 5);
+		var wilson = new Qb("Russell Wilson", 7, 7);
+		var kaepernick = new Qb("Colin Kaepernick", 8, 7);
+		var yards = 100;
+
+		while(brees.position < yards && brady.position < yards && wilson.position < yards && kaepernick.position < yards) {
+			brees.advance();
+			brady.advance();
+			wilson.advance();
+			kaepernick.advance();
+
+			alert(brees.progressReport() + " | " brady.progressReport() + " | " wilson.progressReport() + " | " kaepernick.progressReport();
+		};
+
+</script>
+
+open CF_game_week2.html
