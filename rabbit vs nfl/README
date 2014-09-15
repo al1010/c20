@@ -1,0 +1,7 @@
+README
+
+stats for focus and pass:
+http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/yardsPerPassAttempt
+
+focus = completion percentage rounded up to closest integer
+pass = yards per pass attempt rounded up to closest integer

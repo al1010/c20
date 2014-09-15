@@ -4,10 +4,12 @@
 //QB passing game- who will throw 100 yards first
 
 		function Qb(name, pass, focus) {
-			this.name = name,
-			this.pass = pass,
-			this.focus = focus,
-			this.position = 0,
+			this.name = name;
+			this.pass = pass;
+			this.focus = focus;
+			this.position = 0;
+			this.sack = -4;
+
 			this.isFocused = function() {
 				return Math.floor(Math.random(0) * 10) < this.focus;
 			}
@@ -15,10 +17,13 @@
 			this.advance = function() {
 				if (this.isFocused()) {
 					this.position += this.pass;
+				} else {
+					this.position += this.sack;
 				}
 			}
+
 			this.progressReport = function() {
-				return this.name + " is at: " + this.position;
+				return this.name + " has thrown: " + this.position;
 				}
 			}
 
@@ -34,9 +39,7 @@
 			wilson.advance();
 			kaepernick.advance();
 
-			alert(brees.progressReport() + " | " brady.progressReport() + " | " wilson.progressReport() + " | " kaepernick.progressReport();
+			alert(brees.progressReport() + " | " + brady.progressReport() + " | " + wilson.progressReport() + " | " + kaepernick.progressReport());
 		};
 
 </script>
-
-open CF_game_week2.html
