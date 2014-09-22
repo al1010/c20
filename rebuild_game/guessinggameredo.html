@@ -1,0 +1,19 @@
+<script>
+var guess, answer, message;
+
+// Input:
+guess = prompt ("So Mister- How many licks does it take to get to the center of a Tootsie Pop?");
+answer = Math.random() * (412-375) + 375;
+
+//Processing:
+//check to see if guess is the answer
+if (guess == answer) {
+message = "You're right!"
+}
+else {
+message = "Better ask the owl- the world may never know...";
+};
+// Output:
+alert(message);
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+<title>rebuilding a game</title>
+</head>
+<style type="text/css">
+	p {font-family: sans-serif; font-size: 22px; font-color:;}
+	form {font-family: sans-serif; font-size: 18px; font-style: bold; text-align: center;}
+</style>
+<body>
+	<div id="page">
+		<p class= "prompt">How many licks does it take to get to the center of a Tootsie Pop?</p>
+			<br>
+			<form class="input">
+			Guess: <input type="text" name="guess">
+			</form>
+	</div>
+</body>
+
+<script>
+	$(function() {
+		var guess = $('form.input').html;
+		var	answer = Math.random() * (412-375) + 375;
+
+	//replace text box with ths
+		if $(('form.input').html == answer); {
+			$('form.input').replaceWith ("You're right!")
+		};
+
+	// replace tet box if answer not the same
+		else $('form.input').replaceWith("Better ask the owl- the world may never know...");
+
+</script>
