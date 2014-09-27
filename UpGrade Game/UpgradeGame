@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Rebuilding a game- NFL vs rabbit</title>
+</head>
+	<style type="text/css">
+		body {background-color:white}
+		
+		#header {
+			color:black; 
+			font-family: Arial; 
+			font-size: 32px;
+			}
+		#subheader {
+			color:black; 
+			font-family: arial; 
+			font-size: 26px;
+			}
+
+		.field {
+			width: 500px;
+			height: 50px;
+			margin: 20px;
+			text-decoration: blink;
+			font-style: bold;
+			font-family: Arial;
+			font-size: 20px;
+			margin-left: 20px;
+			background-color: #008000;
+		}
+
+		ul {
+  		border:none;
+ 			padding: 0px;
+  		margin: 0px;
+  		}
+
+		li {
+  		background-color: white;
+  		border-top: 3px solid black;
+  		border-bottom: 3px solid black;
+  		font-size: 24px;
+  		list-style-type: none;
+  		text-align: left;
+  		height: 20px;
+  		padding-top: 10px;
+  		padding-bottom: 10px;
+  		}
+
+		li.Qb {
+			font-family: arial; 
+			font-weight: bold; 
+			font-size: 18px; 
+			border-width: 1px; 
+			border color: black;
+			}
+		
+		#saints {color: #FFBF00;}
+		#patriots {color: #0B0B61;}
+		#sanfran {color: #8A0808;}
+		#seahawks {color: #08088A;}
+
+	</style>
+<body>
+<div id="page">
+	<h1 id="header">Who will throw 100 yards first?</h1>
+		<h2 id="subheader">Player</h2>
+			<div class="field">
+				<span id="saints" class="Qb">Drew Brees</span>
+			</div>
+			<div class="field">
+				<span id="patriots" class="Qb">Tom Brady</span>
+			</div>
+			<div class="field">
+				<span id="sanfran" class="Qb">Colin Kaepernick</span>
+			</div>
+			<div class="field">
+				<span id="seahawks" class="Qb">Russell Wilson</span>
+			</div>
+
+	<button>Start Game!</button>
+
+</div>
+<script src="https://www.google.com/jsapi"></script>
+ <script>
+
+		function Qb(name, pass, focus) {
+			this.name = name;
+			this.pass = pass;
+			this.focus = focus;
+			this.position = 0;
+			this.sack = -4;
+
+			this.isFocused = function() {
+				return Math.floor(Math.random(0) * 10) < this.focus;
+			}
+
+			this.advance = function() {
+				if (this.isFocused()) {
+					this.position += this.pass;
+				} else {
+					this.position += this.sack;
+				}
+			}
+			}
+
+		function onButtonClick() {
+
+		var brees = new Qb("Drew Brees", 8, 7);
+		var brady = new Qb("Tom Brady", 6, 5);
+		var wilson = new Qb("Russell Wilson", 7, 7);
+		var kaepernick = new Qb("Colin Kaepernick", 7, 7);
+		var yards = 100;
+
+		while(brees.position < yards && brady.position < yards && wilson.position < yards && kaepernick.position < yards) {
+			brees.advance();
+			brady.advance();
+			wilson.advance();
+			kaepernick.advance();
+		};
+
+		var yards = 100;
+
+		var timerId = setInterval(function(){
+			if (brees.position < yards && brady.position < yards && wilson.position < yards && kaepernick.position < yards){
+				brees.advance();
+				brady.advance();
+				wilson.advance();
+				kaepernick.advance();
+
+			$('#saints').css('left', brees.position + 'px');
+			$('#patriots').css('left', brees.position + 'px');
+			$('#sanfran').css('left', brees.position + 'px');
+			$('#seahawks').css('left', brees.position + 'px');
+				} 
+				else {
+		    clearInterval(timerId);
+		 	 }
+			} , 100);
+		}
+
+</script>
+</body>
+</html>

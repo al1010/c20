@@ -16,17 +16,18 @@
 	</div>
 </body>
 
-<script>
-	$(function() {
-		var guess = $('form.input').html;
-		var	answer = Math.random() * (412-375) + 375;
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+			var guess = $('form.input').html;
+			var	answer = $(Math.random() * (412-375) + 375);
 
 	//replace text box with ths
-		if $(('form.input').html == answer); {
-			$('form.input').replaceWith ("You're right!")
-		};
+				if $(('form.input').html == answer); {
+					$('form.input').replaceWith ("You're right!")
+					};
 
 	// replace tet box if answer not the same
-		else $('form.input').replaceWith("Better ask the owl- the world may never know...");
-
+			else $('form.input').replaceWith("Better ask the owl- the world may never know...");
+	});
 </script>
