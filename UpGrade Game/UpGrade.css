@@ -1,0 +1,44 @@
+<!DOCTYPE css>
+body {background-color:white}
+		
+		#header {
+			color:black; 
+			font-family: Arial; 
+			font-size: 32px;
+			}
+		#subheader {
+			color:black; 
+			font-family: arial; 
+			font-size: 26px;
+			}
+
+		.field {
+			width: 1000px;
+			height: 50px;
+			margin: 20px;
+			font-style: bold;
+			font-family: Arial;
+			font-size: 20px;
+			margin-left: 20px;
+			background-color: #008000;
+		}
+
+		div {
+  		border:none;
+ 			padding: 0px;
+  		margin: 0px;
+  		}
+
+		span.Qb {
+			font-family: arial; 
+			font-weight: bold; 
+			font-size: 18px; 
+			border-width: 1px; 
+			border color: black;
+			position: absolute;
+			}
+		
+		#saints {color: #FFBF00;}
+		#patriots {color: #0B0B61;}
+		#sanfran {color: #8A0808;}
+		#seahawks {color: #08088A;}
