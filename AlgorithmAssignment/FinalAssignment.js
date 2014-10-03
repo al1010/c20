@@ -1,53 +1,45 @@
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-        var $letters = [sentencePrint];
-    //found this bit on site point alphabetical sorting
-          sort = (function() {
-              var x = a.toLowerCase(), y = b.toLowerCase();
-              return x < y ? -1 : x > y ? 1 : 0;
-          });
-              
-        $('li').removeClass('.sort');
-
-        var m = [sentencePrint]
+//place number at end of the table until all have cycled through
+    function swap(m) {
+        for (var m = 0, count = $('.number').length - 1; m < 0; m++) {
+        $('.number');
+       };
+       $('li').removeClass('sorting');
  
-        $mth = $('.letter:eq(' + m + ')')
-          .addClass('.sort')
+        $mth = $('.number:eq(' + m + ')')
+          .addClass('sorting')
           .fadeIn();
-
-        $sort = $('.letter:eq(' + ')')
-          .addClass('.sort')
+        $swap = $('.number:eq(' + m + ')')
+          .addClass('sorting')
           .fadeIn();
- 
-        $mth.before($sort);
-        $('.letter:eq(' + sort + ')').before($mth);
  
         if (m > 0) {
           setTimeout(shuffle, 200, m - 1);
         } else {
-          $('li').removeClass('sort');
+          $('li').removeClass('sorting');
         };
+      }
  
       $('button').on('click', function() {
-        sort($(".letter").length - 1);
+        swap($(".number").length - 1);
       });
-
-      var sentencePrint = function(){for (i = 0, len = sentence.length, text = "the quick brown fox jumps over the lazy dog"; i < len; i++) { 
-              text += sentence[i] + "<br>";
-          }
-        };
  
-      //function sort() {
-        //this.letters = "the quick brown fox jumps over the lazy dog"
-        //var sentence = this;
+      function Table() {
+        this.first = [1, 2, 3];
+        this.second= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var theTable = this;
  
-        //$.each(this.letters, function() {
-          //$.each(theDeck.ranks, function(index, rank) {
-            //var card = new Card(suit, rank);
-            //$('.letter').append(letter.toHTML());
-          //});
-        //});
+        $.each(this.first, function(index, first) {
+          $.each(theTable.second, function(index, second) {
+            var number = new Number(first, second);
+            $('#table').append(number.toHTML());
+          });
+        });
+      }
  
-      //var sentence = new sentence();
-
-    </script>
+      function Number(first, second) {
+        this.first = first;
+        this.second = second;
+        this.toHTML = function() {
+          return '<li class="number">' + this.first + this.second + '</li>';
+        }
+      }
