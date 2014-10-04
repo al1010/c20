@@ -1,5 +1,5 @@
 //place number at end of the table until all have cycled through
-    function swap(m) {
+    function $swap(m) {
         for (var m = 0, count = $('.number').length - 1; m < 0; m++) {
         $('.number');
        };
@@ -20,16 +20,18 @@
       }
  
       $('button').on('click', function() {
-        swap($(".number").length - 1);
+        $swap($(".number").length - 1);
       });
  
       function Table() {
         this.first = [1, 2, 3];
         this.second= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         var theTable = this;
+
+        console.log(theTable);
  
-        $.each(this.first, function(index, first) {
-          $.each(theTable.second, function(index, second) {
+        $.each(this.firsts, function(index, first) {
+          $.each(theTable.seconds, function(index, second) {
             var number = new Number(first, second);
             $('#table').append(number.toHTML());
           });
